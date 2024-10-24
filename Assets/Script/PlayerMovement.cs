@@ -11,9 +11,8 @@ public class PlayerMovement : MonoBehaviour
     float jumpPower = 9.5f;
     bool isGrounded = true;
 
-
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         rigit = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
