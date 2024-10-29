@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - hitP
+  - kickP
+  - kick2P
+  - hit
+  - scale
+  - kick2
+  - kick
+  - AI
+  - bulletEnemy
+  - bulletPlayer
+  - ground
   layers:
   - Default
   - TransparentFX
