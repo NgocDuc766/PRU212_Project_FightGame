@@ -4332,6 +4332,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 4.6748767
+  orthographic size: 5.039228
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4358,6 +4359,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.31, y: 0.11, z: -10}
   m_LocalScale: {x: 1.4965631, y: 1.5337903, z: 1.0795}
+  m_LocalScale: {x: 1.5892004, y: 1.628732, z: 1.146321}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
