@@ -88,7 +88,7 @@ public class MenuControll : MonoBehaviour
         var btnChar = EventSystem.current.currentSelectedGameObject;
         if (btnChar != null)
         {
-            selectObj.transform.position = btnChar.transform.position + new Vector3(0, 64, 0);
+            selectObj.transform.position = btnChar.transform.position + new Vector3(0, 10, 0);
 
             if (isPlayer1Selecting)
             {

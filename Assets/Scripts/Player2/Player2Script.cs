@@ -29,7 +29,7 @@ public class Player2Script : MonoBehaviour
     private float movement;
     private static GameManager gameManager;
     Rigidbody2D rigi;
-    Animator animator;
+    public Animator animator;
     [SerializeField]
     private float forceX, forceY;
     bool isFacingRight = true;
@@ -39,8 +39,10 @@ public class Player2Script : MonoBehaviour
     public int healthy = 100;
     [Header("power")]
     public int power = 100;
-    private int curHealthy = 100;
+    public int curHealthy = 100;
     private int curPower = 100;
+
+    private bool isDead= false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -62,6 +64,7 @@ public class Player2Script : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        isPlayer2Dead();
     }
 
     private void MovePlayer()
@@ -132,8 +135,26 @@ public class Player2Script : MonoBehaviour
             curHealthy -= 2;
             curPower += 1;
         }
+        animator.SetTrigger("isDamaged");
         gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+    }
 
+    public void isPlayer2Dead()
+    {
+        if (curHealthy <= 0 && !isDead)
+        {
+            animator.SetTrigger("isDead");
+            rigi.velocity = Vector2.zero;
+            isDead = true;
+        }
+    }
+
+    public void OnDeathAnimationComplete()
+    {
+        // Vô hiệu hóa các hành động của player2 sau khi animation chết hoàn thành
+        rigi.isKinematic = true;
+        this.enabled = false; // Vô hiệu hóa script điều khiển player
+        Time.timeScale = 0;
     }
     void OnCollisionEnter2D(Collision2D other)
     {

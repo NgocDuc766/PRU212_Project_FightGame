@@ -11,6 +11,8 @@ public class Player1Script : MonoBehaviour
     private static Player1Script instance;
     private static readonly object instanceLock = new object();
 
+    private Player2Script Player2Script;
+
     public static Player1Script GetInstance()
     {
         return instance;
@@ -43,9 +45,9 @@ public class Player1Script : MonoBehaviour
     public int healthy = 100;
     [Header("power")]
     public int power = 100;
-    private int curHealthy = 100;
+    public int curHealthy = 100;
     private int curPower = 100;
-
+    private bool isDead = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -60,14 +62,18 @@ public class Player1Script : MonoBehaviour
         gameManager = GameManager.GetIntance();
         curHealthy = healthy;
         curPower = power;
+        // get animator and rigidbody
         animator = GetComponent<Animator>();
         rigi = GetComponent<Rigidbody2D>();
+        // get player2Script
+        Player2Script = Player2Script.GetInstance();
     }
 
     // Update is called once per frame
     void Update()
     {
         MovePlayer();
+        isPlayer1Dead();
     }
 
     private void MovePlayer()
@@ -121,7 +127,6 @@ public class Player1Script : MonoBehaviour
         {
             curHealthy = curHealthy - 2;
             curPower += 1;
-            Debug.Log("-2" + "va" + curHealthy);
         }
         if (damage == 4)
         {
@@ -138,6 +143,7 @@ public class Player1Script : MonoBehaviour
             curHealthy -= 2;
             curPower += 1;
         }
+        animator.SetTrigger("isDamaged");
         gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
     }
 
@@ -157,5 +163,23 @@ public class Player1Script : MonoBehaviour
             other.gameObject.SetActive(false);
         }
     }
+    public void isPlayer1Dead()
+    {
+        if (curHealthy <= 0 && !isDead)
+        {
+            animator.SetTrigger("isDead");
+            rigi.velocity = Vector2.zero;
+            isDead = true;
+        }
+    }
+
+    public void OnDeathAnimationComplete()
+    {
+        // Vô hiệu hóa các hành động của player sau khi animation chết hoàn thành
+        rigi.isKinematic = true;
+        this.enabled = false; // Vô hiệu hóa script điều khiển player
+        Time.timeScale = 0;
+    }
+
 }
 
