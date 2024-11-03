@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using XXX.UI.Popup;
 
-public class PlayerControl : MonoBehaviour
+public class Player1Controll : MonoBehaviour
 {
     public enum StatePlayer
     {
@@ -14,15 +14,15 @@ public class PlayerControl : MonoBehaviour
     }
 
     private StatePlayer statePlayer;
-    private static PlayerControl instance;
+    private static Player1Controll instance;
     private static readonly object instanceLock = new object();
 
-    public static PlayerControl GetInstance()
+    public static Player1Controll GetInstance()
     {
         return instance;
     }
 
-    private playerControl2 player2script;
+    private Player2Controll player2script;
 
     [HideInInspector] public Rigidbody2D rib;
     [HideInInspector] public Animator ani;
@@ -30,17 +30,10 @@ public class PlayerControl : MonoBehaviour
     public int healthy = 100;
     [Header("speed")]
     public float speedMove = 5, speedJump = 26;
-    [Header("damagedHealthy")]
-    public int damagedHit = 10;
-    public int damagedKick = 10;
-    public int damagedKick2 = 15;
-    public int damagedSuperHit = 40;
-    public int damagedShoot = 5;
     [Header("power")]
     public int power = 100;
     [Header("damagedPower")]
-    public int powerHit = 60;
-    public int powerShoot = 40;
+
 
     public GameManager gameManager;
 
@@ -62,7 +55,7 @@ public class PlayerControl : MonoBehaviour
                 instance = this;
             }
         }
-        player2script = GameObject.FindGameObjectWithTag("Player2")?.GetComponent<playerControl2>();
+        player2script = GameObject.FindGameObjectWithTag("Player2")?.GetComponent<Player2Controll>();
         gameManager = GameManager.GetIntance();
         statePlayer = StatePlayer.Normal; // khởi tạo trạng thái ban đầu cho nhân vật 
         rib = GetComponent<Rigidbody2D>();
@@ -159,48 +152,12 @@ public class PlayerControl : MonoBehaviour
         //hit
         if (Input.GetKeyDown(KeyCode.J) && isGround)
         {
-            if (timeHit > 0 && countHit == 1)
-            {
-                ani.SetFloat("timeHit", 0.6f);
-            }
-            else
-            {
                 ani.SetTrigger("hit");
-                ani.SetFloat("timeHit", 0f);
-                timeHit = 0.5f;
-                countHit += 1;
-            }
-        }
-        if (timeHit > 0)
-        {
-            timeHit -= Time.deltaTime;
-        }
-        else
-        {
-            countHit = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.K) && isGround)
         {
-            if (timeHit > 0 && countHit == 1)
-            {
-                ani.SetFloat("timeHit", 0.6f);
-            }
-            else
-            {
                 ani.SetTrigger("kick");
-                ani.SetFloat("timeHit", 0f);
-                timeHit = 0.5f;
-                countHit += 1;
-            }
-        }
-        if (timeHit > 0)
-        {
-            timeHit -= Time.deltaTime;
-        }
-        else
-        {
-            countHit = 0;
         }
         //super hit
         if (Input.GetKeyDown(KeyCode.I) && isGround)
@@ -217,7 +174,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (curPower >= 60)
             {
-                curPower = curPower - 60;
+                curPower = curPower - 1;
                 ani.SetTrigger("shoot");
                 gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
             }
@@ -298,69 +255,14 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    Debug.Log("trung");
-    //    //if (!player2script.isDamaged)
-    //    //{
-    //    if (other.gameObject.tag == "hit")
-    //    {
-    //        CreateEffectDamaged(0.5f, 1);
-    //        isDamaged = true;
-    //        damagedRate = 0.5f;
-    //        curHealthy -= 4;
-    //        curPower += 5;
-    //        if (curPower > 100)
-    //        {
-    //            curPower = 100;
-    //        }
-    //        gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
-    //    }
-    //    //if (other.gameObject.tag == "kick")
-    //    //{
-    //    //	isDamaged = true;
-    //    //	damagedRate = 1f;
-    //    //	CreateEffectDamaged(0.5f, 1);
-    //    //	gameManager.UpdateHealthy(ref curHealthy, ref damagedKick, ref curPower, ref power, 1);
-    //    //}
-
-    //    if (other.gameObject.tag == "scale")
-    //    {
-    //        CreateEffectDamaged(0.5f, 1);
-    //        isDamaged = true;
-    //        damagedRate = 0.5f;
-    //        curHealthy -= 30;
-    //        curPower += 5;
-    //        if (curPower > 100)
-    //        {
-    //            curPower = 100;
-    //        }
-    //        gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
-    //    }
-
-    //    //if (other.gameObject.name == "kick2P") {
-    //    //	isDamaged = true;
-    //    //	damagedRate = 1;
-    //    //	CreateEffectDamaged (1f, 1f);
-    //    //	//update healthy
-    //    //	gameManager.UpdateHealthy (ref curHealthy, ref damagedKick2, ref player2script.curPower, player2script.power, 1);
-    //    //}
-
-    //    if (other.gameObject.tag == "bulletPlayer")
-    //    {
-    //        Destroy(other.gameObject);
-    //        CreateEffectDamaged(0.5f, 1);
-    //        isDamaged = true;
-    //        damagedRate = 0.5f;
-    //        curHealthy -= 6;
-    //        curPower += 10;
-    //        if (curPower > 100)
-    //        {
-    //            curPower = 100;
-    //        }
-    //        gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
-    //        //}
-    //    }
-    //}
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag != "Player2")
+        {
+            CreateEffectDamaged(0.5f, 1);
+            isDamaged = true;
+            damagedRate = 0.5f;
+        }
+    }
 }
 

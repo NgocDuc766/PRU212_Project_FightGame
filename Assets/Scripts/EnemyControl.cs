@@ -15,7 +15,7 @@ public class EnemyControl : MonoBehaviour
 
 	public StateEnemy stateEnemy{ get; set; }
 
-	private PlayerControl playerScript;
+	private Player1Controll playerScript;
 
 	private static EnemyControl instance;
 
@@ -46,7 +46,7 @@ public class EnemyControl : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		playerScript = PlayerControl.GetInstance ();
+		playerScript = Player1Controll.GetInstance ();
 		stateEnemy = StateEnemy.normal;
 
 		scaleX = transform.localScale.x;

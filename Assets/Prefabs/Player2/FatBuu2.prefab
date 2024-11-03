@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 212787276710979188}
   - component: {fileID: 95395433967439548}
   - component: {fileID: 50586042414511286}
+  - component: {fileID: 7505194420425742846}
   - component: {fileID: 61322684828658470}
-  - component: {fileID: 114879017653811454}
   - component: {fileID: 114763583820404756}
   m_Layer: 0
   m_Name: FatBuu2
@@ -142,6 +142,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7505194420425742846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044413295412336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c060422be17220f438a85b0079fac310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rib: {fileID: 0}
+  ani: {fileID: 0}
+  healthy: 100
+  speedMove: 5
+  speedJump: 26
+  power: 100
+  gameManager: {fileID: 0}
+  curHealthy: 0
+  curPower: 0
+  isDamaged: 0
+  gameOverObj: {fileID: 0}
 --- !u!61 &61322684828658470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -187,36 +210,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.57000005, y: 0.63000005}
   m_EdgeRadius: 0
---- !u!114 &114879017653811454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1044413295412336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7be7a8639403fde449d11868f989b893, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rib: {fileID: 0}
-  ani: {fileID: 0}
-  healthy: 100
-  speedMove: 5
-  speedJump: 26
-  damagedHit: 2
-  damagedKick: 4
-  damagedKick2: 6
-  damagedSuperHit: 15
-  damagedShoot: 2
-  power: 100
-  powerHit: 60
-  powerShoot: 40
-  gameManager: {fileID: 0}
-  curHealthy: 0
-  curPower: 0
-  isDamaged: 0
-  gameOverObj: {fileID: 0}
 --- !u!114 &114763583820404756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +249,7 @@ Transform:
   m_GameObject: {fileID: 1072159696426650}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.31, y: 0.64, z: 0}
+  m_LocalPosition: {x: 0.436, y: 0.661, z: 0}
   m_LocalScale: {x: 0.2702703, y: 0.2702703, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -579,7 +572,7 @@ GameObject:
   - component: {fileID: 4820038851695268}
   - component: {fileID: 212189626284188360}
   m_Layer: 0
-  m_Name: Kamekameha
+  m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -665,7 +658,7 @@ GameObject:
   - component: {fileID: 61219292448822294}
   - component: {fileID: 4672101466265782160}
   m_Layer: 0
-  m_Name: Kame_Scale
+  m_Name: scale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

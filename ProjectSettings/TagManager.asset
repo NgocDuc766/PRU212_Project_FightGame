@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Player1
   - Player2
+  - ground
+  - bulletPlayer
+  - bulletEnemy
+  - healing
+  - power
   layers:
   - Default
   - TransparentFX

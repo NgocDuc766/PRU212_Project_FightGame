@@ -14,31 +14,31 @@ public class EventAnimation : MonoBehaviour
 
 	public void AddJumpForce (float speed)
 	{
-		PlayerControl player = GetComponent<PlayerControl> ();
+		Player1Controll player = GetComponent<Player1Controll> ();
 		if (player != null)
 			player.gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, speed);
 	}
 
 	public void CallBullet ()
 	{
-		PlayerControl player = GetComponent<PlayerControl> ();
-		playerControl2 AI = GetComponent<playerControl2> ();
-		if (player != null) {
-			CallBulletPlayer (player);
+		Player1Controll player1 = GetComponent<Player1Controll> ();
+		Player2Controll player2 = GetComponent<Player2Controll> ();
+		if (player1 != null) {
+			CallBulletPlayer (player1);
 		}
-		if (AI != null) {
-			CallBulletAI (AI);
+		if (player2 != null) {
+			CallBulletAI (player2);
 		}
 	}
 
-	public void CanUsingSkillSpecial()
-	{
-		playerControl2 AI = GetComponent<playerControl2>();
-		if (AI != null)
-			AI.isUsingSkillSpecial = false;
-	}
+	//public void CanUsingSkillSpecial()
+	//{
+	//	Player2Controll AI = GetComponent<Player2Controll>();
+	//	if (AI != null)
+	//		AI.isUsingSkillS = false;
+	//}
 
-	public void CallBulletPlayer (PlayerControl player)
+	public void CallBulletPlayer (Player1Controll player)
 	{
 		
 		Transform pos = player.transform.Find ("posCallBullet");
@@ -52,7 +52,7 @@ public class EventAnimation : MonoBehaviour
 
 	}
 
-	public void CallBulletAI(playerControl2 AI)
+	public void CallBulletAI(Player2Controll AI)
 	{
 		Transform pos = AI.transform.Find("posCallBullet");
 		string nameBullet = AI.gameObject.name;
