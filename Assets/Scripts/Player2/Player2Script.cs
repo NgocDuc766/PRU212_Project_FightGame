@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening.Core.Easing;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -134,4 +135,19 @@ public class Player2Script : MonoBehaviour
         gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
 
     }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "healing")
+        {
+            curHealthy += 10;
+            gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+            other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag == "power")
+        {
+            curPower += 10;
+            gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+            other.gameObject.SetActive(false);
+        }
+    }     
 }

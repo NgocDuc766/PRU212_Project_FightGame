@@ -143,26 +143,41 @@ public class GameManager : MonoBehaviour
 			if (curHealthy < 100)
 			{
 				_hp1.fillAmount = (float)curHealthy / healthy;
-			}
+		}
+		else
+		{
+			_hp1.fillAmount = 1f;
+        }
 
-			if (curpower < 100)
-			{
+        if (curpower < 100)
+		{
 				_anger1.fillAmount = (float)curpower / power;
-			}
+	    }else
+		{
+			_anger1.fillAmount = 1f;
+		}
 		}
 		public void UpdateHealthyPlayer2(ref int curHealthy, ref int healthy, ref int curpower, ref int power, int action)
 		{
-			if (curHealthy <= 100)
-			{
-				_hp2.fillAmount = (float)curHealthy / healthy;
-			}
+        if (curHealthy < 100)
+        {
+            _hp2.fillAmount = (float)curHealthy / healthy;
+        }
+        else
+        {
+            _hp2.fillAmount = 1f;
+        }
 
-			if (curpower <= 100)
-			{
-				_anger2.fillAmount = (float)curpower / power;
-			}
+        if (curpower < 100)
+        {
+            _anger2.fillAmount = (float)curpower / power;
+        }
+        else
+        {
+            _anger2.fillAmount = 1f;
+        }
 
-		}
+    }
 
 		//   public void UpdateHealthyEnemy (ref int curHealthyEnemy, ref int damagedHealthyEnemy,ref int curPower,int maxPower, int action)
 		//{

@@ -141,4 +141,21 @@ public class Player1Script : MonoBehaviour
         gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "healing")
+        {
+            Debug.Log(curHealthy);
+            curHealthy += 10;
+            gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+            other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag == "power")
+        {
+            curPower += 10;
+            gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+            other.gameObject.SetActive(false);
+        }
+    }
 }
+

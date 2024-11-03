@@ -46,7 +46,7 @@ public class Player2Controll : MonoBehaviour
     private float timeHit, timeKick, timeJump;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         lock (instanceLock)
         {
@@ -79,7 +79,7 @@ public class Player2Controll : MonoBehaviour
         //      }
         transform.position = new Vector3(transform.position.x, transform.position.y, 0); // 
         MovePlayer();
-        Attack();
+        AttackEnemy();
         //}
         Blocking();
         ChangeAnimation();
@@ -143,11 +143,8 @@ public class Player2Controll : MonoBehaviour
         //Time.timeScale = 0;
         //resetGame();
     }
-    //public void resetGame()
-    //{
-    //	SceneManager.LoadScene(2);
-    //}
-    private void Attack()
+
+    private void AttackEnemy()
     {
         //hit
         if (Input.GetKeyDown(KeyCode.Alpha1) && isGround)
@@ -216,7 +213,7 @@ public class Player2Controll : MonoBehaviour
         Destroy(prefab, 0.3f);
         //quay chieu
 
-        if (transform.position.x > player1script.gameObject.transform.position.x)
+        if (transform.position.x > player1script.gameObject.transform.position.x)   
         {
             transform.localScale = new Vector3(-scaleX, scaleY, 0);
             rib.velocity = new Vector2(velocityX, velocityY);
@@ -245,6 +242,18 @@ public class Player2Controll : MonoBehaviour
         {
             isGround = true;
         }
+        if (other.gameObject.tag == "healing")
+        {
+            curHealthy += 10;
+            gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+            other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag == "power")
+        {
+            curPower += 10;
+            gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+            other.gameObject.SetActive(false);
+        }
     }
 
     void OnCollisionExit2D(Collision2D other)
@@ -257,12 +266,41 @@ public class Player2Controll : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag != "Player1")
+        if (other.gameObject.tag != "Player1" && other.gameObject.tag != "healing" && other.gameObject.tag != "power")
         {
             CreateEffectDamaged(0.5f, 1);
             isDamaged = true;
             damagedRate = 0.5f;
         }
+
+    }
+
+
+    public void Attack(float damage)
+    {
+        //trừ máu đối phương - player2
+        if (damage == 2)
+        {
+            curHealthy = curHealthy - 2;
+            curPower += 1;
+            Debug.Log("-2" + "va" + curHealthy);
+        }
+        if (damage == 4)
+        {
+            curHealthy -= 4;
+            curPower += 1;
+        }
+        if (damage == 5)
+        {
+            curHealthy -= 2;
+            curPower += 1;
+        }
+        if (damage == 10)
+        {
+            curHealthy -= 2;
+            curPower += 1;
+        }
+        gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
     }
 }
 

@@ -46,7 +46,7 @@ public class Player1Controll : MonoBehaviour
     private float timeHit, timeKick, timeJump;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         lock (instanceLock)
         {
@@ -143,10 +143,7 @@ public class Player1Controll : MonoBehaviour
         //Time.timeScale = 0;
         //resetGame();
     }
-    //public void resetGame()
-    //{
-    //	SceneManager.LoadScene(2);
-    //}
+
     private void Attack()
     {
         //hit
@@ -245,6 +242,22 @@ public class Player1Controll : MonoBehaviour
         {
             isGround = true;
         }
+        if (other.gameObject.tag == "ground")
+        {
+            isGround = true;
+        }
+        if (other.gameObject.tag == "healing")
+        {
+            curHealthy += 10;
+            gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+            other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag == "power")
+        {
+            curPower += 10;
+            gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+            other.gameObject.SetActive(false);
+        }
     }
 
     void OnCollisionExit2D(Collision2D other)
@@ -263,6 +276,33 @@ public class Player1Controll : MonoBehaviour
             isDamaged = true;
             damagedRate = 0.5f;
         }
+    }
+
+    public void Attack(float damage)
+    {
+        //trừ máu đối phương - player2
+        if (damage == 2)
+        {
+            curHealthy = curHealthy - 2;
+            curPower += 1;
+            Debug.Log("-2" + "va" + curHealthy);
+        }
+        if (damage == 4)
+        {
+            curHealthy -= 4;
+            curPower += 1;
+        }
+        if (damage == 5)
+        {
+            curHealthy -= 2;
+            curPower += 1;
+        }
+        if (damage == 10)
+        {
+            curHealthy -= 2;
+            curPower += 1;
+        }
+        gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
     }
 }
 

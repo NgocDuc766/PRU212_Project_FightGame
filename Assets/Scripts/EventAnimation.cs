@@ -24,10 +24,10 @@ public class EventAnimation : MonoBehaviour
 		Player1Controll player1 = GetComponent<Player1Controll> ();
 		Player2Controll player2 = GetComponent<Player2Controll> ();
 		if (player1 != null) {
-			CallBulletPlayer (player1);
+			CallBulletPlayer1 (player1);
 		}
 		if (player2 != null) {
-			CallBulletAI (player2);
+			CallBulletPlayer2 (player2);
 		}
 	}
 
@@ -38,36 +38,35 @@ public class EventAnimation : MonoBehaviour
 	//		AI.isUsingSkillS = false;
 	//}
 
-	public void CallBulletPlayer (Player1Controll player)
+	public void CallBulletPlayer1(Player1Controll player1)
 	{
 		
-		Transform pos = player.transform.Find ("posCallBullet");
-		string nameBullet = player.gameObject.name;
+		Transform pos = player1.transform.Find ("posCallBullet");
+		string nameBullet = player1.gameObject.name;
 		GameObject temp = SelectBullet (nameBullet);
 		GameObject bullet = Instantiate (temp, pos.position, Quaternion.identity) as GameObject;
 		bullet.tag = "bulletPlayer";
-		Vector3 direc = player.transform.localScale.x > 0 ? new Vector3 (20, 0, 0) : new Vector3 (-20, 0, 0);
+		Vector3 direc = player1.transform.localScale.x > 0 ? new Vector3 (20, 0, 0) : new Vector3 (-20, 0, 0);
 		iTween.MoveBy (bullet, direc, 2f);
-		Destroy (bullet, 2);
+		Destroy (bullet, 1);
 
 	}
 
-	public void CallBulletAI(Player2Controll AI)
+	public void CallBulletPlayer2(Player2Controll player2)
 	{
-		Transform pos = AI.transform.Find("posCallBullet");
-		string nameBullet = AI.gameObject.name;
+		Transform pos = player2.transform.Find("posCallBullet");
+		string nameBullet = player2.gameObject.name;
 		GameObject temp = SelectBullet(nameBullet);
 		GameObject bullet = Instantiate(temp, pos.position, Quaternion.identity) as GameObject;
 		bullet.tag = "bulletEnemy";
-		Vector3 direc = AI.transform.localScale.x > 0 ? new Vector3(20, 0, 0) : new Vector3(-20, 0, 0);
+		Vector3 direc = player2.transform.localScale.x > 0 ? new Vector3(20, 0, 0) : new Vector3(-20, 0, 0);
 		iTween.MoveBy(bullet, direc, 2f);
-		Destroy(bullet, 2);
+		Destroy(bullet, 1);
 	}
 
 	private GameObject SelectBullet (string nameBullet)
 	{
 		PrefabGO prefabs = PrefabGO.GetInstance ();
-		nameBullet = nameBullet.Replace ("AI", "");
 		switch (nameBullet) {
 		case "Songoku":
 			return prefabs.bulletGoku;
