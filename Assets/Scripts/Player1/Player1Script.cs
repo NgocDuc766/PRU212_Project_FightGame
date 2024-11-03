@@ -5,26 +5,16 @@ using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerScript : MonoBehaviour
+public class Player1Script : MonoBehaviour
 {
     // khởi tạo
-    private static PlayerScript instance ;
-    private static readonly object  instanceLock = new object();
+    private static Player1Script instance;
+    private static readonly object instanceLock = new object();
 
-    public static PlayerScript GetInstance()
+    public static Player1Script GetInstance()
     {
-                return instance;
+        return instance;
     }
-
-    private PlayerScript()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-    }
-
-
 
     /*
      Normal = 0,
@@ -40,10 +30,10 @@ public class PlayerScript : MonoBehaviour
 
     private float vertical1, movement;
     private static GameManager gameManager;
-    [SerializeField]
+    // animator va rigibody
     Rigidbody2D rigi;
-    [SerializeField]
     Animator animator;
+    // ===============
     [SerializeField]
     private float forceX, forceY;
     bool isFacingRight = true;
@@ -54,17 +44,24 @@ public class PlayerScript : MonoBehaviour
     [Header("power")]
     public int power = 100;
     private int curHealthy = 100;
-    private int curPower =100;
+    private int curPower = 100;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        lock (instanceLock)
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+        }
         gameManager = GameManager.GetIntance();
-        Debug.Log("abcd");
         curHealthy = healthy;
         curPower = power;
-
+        animator = GetComponent<Animator>();
+        rigi = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -76,7 +73,6 @@ public class PlayerScript : MonoBehaviour
     private void MovePlayer()
     {
         movement = Input.GetAxis("Horizontal1");
-        vertical1 = Input.GetAxis("Vertical1");
         // move 
         rigi.velocity = new Vector2(forceX * movement, rigi.velocity.y);
         Vector3 CharacterScale = transform.localScale;
@@ -95,16 +91,14 @@ public class PlayerScript : MonoBehaviour
         if (movement == 0)
         { // nếu movement = 0 thì đứng yên
             animator.SetInteger("speedX", 0);
-            //dashanimator.SetBool("dash_effect", false);
 
         }
         else
         { // movement > 0 thì hiển thị animation di chuyển  
             animator.SetInteger("speedX", 1);
-            //dashanimator.SetBool("dash_effect", true);
         }
 
-        if (Input.GetKeyDown(KeyCode.K) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             rigi.velocity = new Vector2(rigi.velocity.x, forceY);
             isGrounded = false;
@@ -122,12 +116,12 @@ public class PlayerScript : MonoBehaviour
 
     public void Attack(float damage)
     {
-        //trừ máu player2
-        if(damage == 2)
+        //trừ máu đối phương - player2
+        if (damage == 2)
         {
             curHealthy = curHealthy - 2;
             curPower += 1;
-            Debug.Log("-2" + "va" + curHealthy );
+            Debug.Log("-2" + "va" + curHealthy);
         }
         if (damage == 4)
         {
@@ -144,19 +138,7 @@ public class PlayerScript : MonoBehaviour
             curHealthy -= 2;
             curPower += 1;
         }
-        if(gameManager == null)
-        {
-            Debug.Log("gamemanager null");
-            gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
-        }
-        else
-        {
-            Debug.Log("gamemanager not null");
-            gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
-
-
-        }
-
+        gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
     }
 
 }

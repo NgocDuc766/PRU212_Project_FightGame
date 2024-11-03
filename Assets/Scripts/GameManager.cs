@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
 	{
 		if (instance == null) {
 			instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+
+		}
 	}
 
 	public GameState state;
@@ -59,9 +59,10 @@ public class GameManager : MonoBehaviour
 		prefabScript = PrefabGO.GetInstance();
 		InitPlayer1();
 		InitPlayer2();
-		//InitAI ();
-		//StartCoroutine(Loading());
-	}
+        //InitAI ();
+        //StartCoroutine(Loading());
+        DontDestroyOnLoad(gameObject);
+    }
 
 
 	//private IEnumerator Loading()

@@ -15,18 +15,11 @@ public class PlayerControl : MonoBehaviour
 
     private StatePlayer statePlayer;
     private static PlayerControl instance;
+    private static readonly object instanceLock = new object();
 
     public static PlayerControl GetInstance()
     {
         return instance;
-    }
-
-    private PlayerControl()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
     }
 
     private playerControl2 player2script;
@@ -62,6 +55,13 @@ public class PlayerControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        lock (instanceLock)
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+        }
         player2script = GameObject.FindGameObjectWithTag("Player2")?.GetComponent<playerControl2>();
         gameManager = GameManager.GetIntance();
         statePlayer = StatePlayer.Normal; // khởi tạo trạng thái ban đầu cho nhân vật 

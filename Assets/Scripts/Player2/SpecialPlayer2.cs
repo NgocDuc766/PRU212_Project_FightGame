@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecialAttack : MonoBehaviour
+public class SpecialPlayer2 : MonoBehaviour
 {
     private Animator animator;
     // Start is called before the first frame update
@@ -20,7 +19,7 @@ public class SpecialAttack : MonoBehaviour
 
     private void SpecialAttack1()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetMouseButtonUp(1))
         {
             animator.SetTrigger("isSpecial1");
         }

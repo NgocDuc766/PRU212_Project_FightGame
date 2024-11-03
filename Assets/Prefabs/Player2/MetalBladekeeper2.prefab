@@ -62,7 +62,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -160,7 +160,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -256,7 +256,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -308,10 +308,10 @@ GameObject:
   - component: {fileID: 3037216372645672203}
   - component: {fileID: 2143930475838428006}
   - component: {fileID: 4297785305969136997}
-  - component: {fileID: 509006938991550283}
   - component: {fileID: 6196535459672978466}
-  - component: {fileID: 5781058167447896748}
-  - component: {fileID: 5374037616881627314}
+  - component: {fileID: 5686091884146350673}
+  - component: {fileID: 5247055706890497626}
+  - component: {fileID: 2796752375412630879}
   m_Layer: 0
   m_Name: MetalBladekeeper2
   m_TagString: Player2
@@ -416,7 +416,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2143930475838428006
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -483,24 +483,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &509006938991550283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7657536866827237022}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 163e6e06661083b4583be1c46060f131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigi: {fileID: 3037216372645672203}
-  animator: {fileID: 4297785305969136997}
-  forceX: 8
-  forceY: 7
-  healthy: 100
-  power: 100
 --- !u!61 &6196535459672978466
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -530,10 +512,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015196562, y: -0.65823966}
+  m_Offset: {x: -0.018777609, y: -0.65823966}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -544,32 +526,48 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7152957, y: 0.1642431}
+  m_Size: {x: 0.07073164, y: 0.1642431}
   m_EdgeRadius: 0
---- !u!114 &5781058167447896748
+--- !u!114 &5686091884146350673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7657536866827237022}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d4afff23b19d8640a5d98bfaf0042c2, type: 3}
+  m_Script: {fileID: 11500000, guid: bf66b95a520369348b9f02c8ea430e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   comboStep: 0
   comboResetTime: 1
---- !u!114 &5374037616881627314
+--- !u!114 &5247055706890497626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7657536866827237022}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e081d50d51708e640b4b877947751b98, type: 3}
+  m_Script: {fileID: 11500000, guid: a5cad89a138e1834ab8dfdaba1933933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceX: 8
+  forceY: 7
+  healthy: 100
+  power: 100
+--- !u!114 &2796752375412630879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657536866827237022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1359677fe00a0e459d2625d72f70d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8441052603123605749
@@ -634,7 +632,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

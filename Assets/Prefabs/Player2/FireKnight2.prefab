@@ -62,7 +62,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -162,7 +162,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -211,10 +211,10 @@ GameObject:
   - component: {fileID: 3302845834028589307}
   - component: {fileID: 5251213776808468005}
   - component: {fileID: 253122408711953678}
-  - component: {fileID: 9164594642370175671}
   - component: {fileID: 3006091849513545673}
-  - component: {fileID: 1090779997782849486}
-  - component: {fileID: 4103372162814429849}
+  - component: {fileID: 4774777438642237756}
+  - component: {fileID: 2919506141570113735}
+  - component: {fileID: 5484984723524421325}
   m_Layer: 0
   m_Name: FireKnight2
   m_TagString: Player2
@@ -386,24 +386,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &9164594642370175671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5941795941870948755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 163e6e06661083b4583be1c46060f131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigi: {fileID: 3302845834028589307}
-  animator: {fileID: 253122408711953678}
-  forceX: 7
-  forceY: 8
-  healthy: 100
-  power: 100
 --- !u!61 &3006091849513545673
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -436,7 +418,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.030262053, y: -0.6586416}
+  m_Offset: {x: 0.016766295, y: -0.6586416}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -447,9 +429,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5053305, y: 0.15496892}
+  m_Size: {x: 0.06447187, y: 0.15496898}
   m_EdgeRadius: 0
---- !u!114 &1090779997782849486
+--- !u!114 &4774777438642237756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -458,12 +440,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5941795941870948755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d4afff23b19d8640a5d98bfaf0042c2, type: 3}
+  m_Script: {fileID: 11500000, guid: bf66b95a520369348b9f02c8ea430e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   comboStep: 0
   comboResetTime: 1
---- !u!114 &4103372162814429849
+--- !u!114 &2919506141570113735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -472,7 +454,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 5941795941870948755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e081d50d51708e640b4b877947751b98, type: 3}
+  m_Script: {fileID: 11500000, guid: a5cad89a138e1834ab8dfdaba1933933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceX: 8
+  forceY: 7
+  healthy: 100
+  power: 100
+--- !u!114 &5484984723524421325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5941795941870948755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1359677fe00a0e459d2625d72f70d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7172578432550557996
@@ -635,7 +633,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

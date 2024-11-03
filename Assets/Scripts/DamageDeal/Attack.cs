@@ -6,12 +6,14 @@ public class Attack : MonoBehaviour
 {
     [SerializeField]
     float attackDamage;
-    private PlayerScript PlayerScript ;
+    private Player2Script Player2Script;
+    private Player1Script Player1Script;
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerScript = PlayerScript.GetInstance();
+        Player1Script = Player1Script.GetInstance();
+        Player2Script = Player2Script.GetInstance();
     }
 
     // Update is called once per frame
@@ -27,18 +29,13 @@ public class Attack : MonoBehaviour
         if(collision.CompareTag("Player2"))
         {
             // trừ máu player2
-            Debug.Log("player2 - " +  attackDamage);
-            if(PlayerScript == null)
-            {
-                Debug.Log("a");
-            }
-            PlayerScript.Attack(attackDamage);
+            Player2Script.Attack(attackDamage);
         }
         // neu la player2 thi tru dame cua player1
         if (collision.CompareTag("Player1"))
         {
-            // trừ máu player2
-            Debug.Log("player1 - " + attackDamage);
+            // trừ máu player1
+            Player1Script.Attack(attackDamage);
         }
 
     }

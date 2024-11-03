@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ComboAttack : MonoBehaviour
+public class ComboAttack1 : MonoBehaviour
 {
     private Animator animator;
     // variable for comboAttack

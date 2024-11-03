@@ -195,10 +195,10 @@ GameObject:
   - component: {fileID: 8316846744175514345}
   - component: {fileID: 8132630272697223564}
   - component: {fileID: 8301631592367612685}
-  - component: {fileID: 7238205469835484894}
-  - component: {fileID: 7666069769670945071}
   - component: {fileID: 2682960619007704902}
-  - component: {fileID: 6542881375718184226}
+  - component: {fileID: 4607424888712893685}
+  - component: {fileID: 7175822676507368455}
+  - component: {fileID: 4479839724124469032}
   m_Layer: 0
   m_Name: WaterPriestess2
   m_TagString: Player2
@@ -371,38 +371,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.109952986, y: 0.38539362}
   m_EdgeRadius: 0
---- !u!114 &7238205469835484894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7502084764719080963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d4afff23b19d8640a5d98bfaf0042c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  comboStep: 0
-  comboResetTime: 1
---- !u!114 &7666069769670945071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7502084764719080963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 163e6e06661083b4583be1c46060f131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigi: {fileID: 8316846744175514345}
-  animator: {fileID: 8132630272697223564}
-  forceX: 7
-  forceY: 8
-  healthy: 100
-  power: 100
 --- !u!61 &2682960619007704902
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -435,7 +403,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.006542042, y: -0.66920376}
+  m_Offset: {x: 0.012187611, y: -0.66920376}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -446,9 +414,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4573311, y: 0.17530513}
+  m_Size: {x: 0.05502557, y: 0.17530513}
   m_EdgeRadius: 0
---- !u!114 &6542881375718184226
+--- !u!114 &4607424888712893685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -457,7 +425,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 7502084764719080963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e081d50d51708e640b4b877947751b98, type: 3}
+  m_Script: {fileID: 11500000, guid: a5cad89a138e1834ab8dfdaba1933933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceX: 8
+  forceY: 7
+  healthy: 100
+  power: 100
+--- !u!114 &7175822676507368455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502084764719080963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf66b95a520369348b9f02c8ea430e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboStep: 0
+  comboResetTime: 1
+--- !u!114 &4479839724124469032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502084764719080963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1359677fe00a0e459d2625d72f70d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7754203064083898054
