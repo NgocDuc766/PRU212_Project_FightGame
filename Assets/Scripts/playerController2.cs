@@ -62,7 +62,7 @@ public class playerControl2 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        player1Script = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerControl>();
+        player1Script = GameObject.FindGameObjectWithTag("Player1")?.GetComponent<PlayerControl>();
         gameManager = GameManager.GetIntance();
 
         statePlayer = StatePlayer.Normal; // khởi tạo trạng thái ban đầu cho nhân vật 
@@ -318,20 +318,20 @@ public class playerControl2 : MonoBehaviour
     {
         //if (!AIScript.isDamaged)
         //{
-            if (other.gameObject.tag == "hitP")
-            {
-            CreateEffectDamaged(0.5f, 1);
-			isDamaged = true;
-			damagedRate = 0.5f;
-				curHealthy -= 10;
-			    curPower += 5;
-            if (curPower > 100)
-            {
-                curPower = 100;
-            }
-            gameManager.UpdateHealthyPlayer2 (ref curHealthy,ref healthy,ref curPower,ref power, 1);
+   //         if (other.gameObject.tag == "hitP")
+   //         {
+   //         CreateEffectDamaged(0.5f, 1);
+			//isDamaged = true;
+			//damagedRate = 0.5f;
+			//	curHealthy -= 10;
+			//    curPower += 5;
+   //         if (curPower > 100)
+   //         {
+   //             curPower = 100;
+   //         }
+   //         gameManager.UpdateHealthyPlayer2 (ref curHealthy,ref healthy,ref curPower,ref power, 1);
 
-            }
+   //         }
         //    if (other.gameObject.tag == "kick")
         //    {
         //        isDamaged = true;
@@ -341,19 +341,19 @@ public class playerControl2 : MonoBehaviour
         //        gameManager.UpdateHealthy(ref curHealthy, ref damagedKick, ref AIScript.curPowerEnemy, AIScript.power, 1);
         //    }
 
-        if (other.gameObject.tag == "scale")
-        {
-            CreateEffectDamaged(0.5f, 1);
-            isDamaged = true;
-            damagedRate = 0.5f;
-            curHealthy -= 30;
-            curPower += 5;
-            if (curPower > 100)
-            {
-                curPower = 100;
-            }
-            gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
-        }
+        //if (other.gameObject.tag == "scale")
+        //{
+        //    CreateEffectDamaged(0.5f, 1);
+        //    isDamaged = true;
+        //    damagedRate = 0.5f;
+        //    curHealthy -= 30;
+        //    curPower += 5;
+        //    if (curPower > 100)
+        //    {
+        //        curPower = 100;
+        //    }
+        //    gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+        //}
 
         //    if (other.gameObject.name == "kick2P")
         //    {
@@ -364,20 +364,20 @@ public class playerControl2 : MonoBehaviour
         //        gameManager.UpdateHealthy(ref curHealthy, ref damagedKick2, ref AIScript.curPowerEnemy, AIScript.power, 1);
         //    }
 
-        if (other.gameObject.tag == "bulletPlayer")
-        {
-            Destroy(other.gameObject);
-            CreateEffectDamaged(0.5f, 1);
-            isDamaged = true;
-            damagedRate = 0.5f;
-            curHealthy -= 10;
-            curPower += 10;
-            if (curPower > 100)
-            {
-                curPower = 100;
-            }
-            gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
-        }
+        //if (other.gameObject.tag == "bulletPlayer")
+        //{
+        //    Destroy(other.gameObject);
+        //    CreateEffectDamaged(0.5f, 1);
+        //    isDamaged = true;
+        //    damagedRate = 0.5f;
+        //    curHealthy -= 10;
+        //    curPower += 10;
+        //    if (curPower > 100)
+        //    {
+        //        curPower = 100;
+        //    }
+        //    gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+        //}
     }
 
 

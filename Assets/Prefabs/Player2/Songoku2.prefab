@@ -175,8 +175,8 @@ GameObject:
   - component: {fileID: 95873170864533216}
   - component: {fileID: 114517154294938782}
   - component: {fileID: 50839386147062578}
+  - component: {fileID: -6166969083595396579}
   - component: {fileID: 61818593747963362}
-  - component: {fileID: 114605998276442500}
   m_Layer: 0
   m_Name: Songoku2
   m_TagString: Player2
@@ -315,6 +315,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-6166969083595396579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559846158792958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c060422be17220f438a85b0079fac310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rib: {fileID: 0}
+  ani: {fileID: 0}
+  healthy: 100
+  speedMove: 5
+  speedJump: 26
+  damagedHit: 10
+  damagedKick: 10
+  damagedKick2: 15
+  damagedSuperHit: 40
+  damagedShoot: 5
+  power: 100
+  powerHit: 60
+  powerShoot: 40
+  curHealthy: 0
+  curPower: 0
+  isDamaged: 0
+  isUsingSkillSpecial: 0
+  gameOverObj: {fileID: 0}
 --- !u!61 &61818593747963362
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -360,36 +390,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.62000006, y: 0.51000005}
   m_EdgeRadius: 0
---- !u!114 &114605998276442500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1559846158792958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7be7a8639403fde449d11868f989b893, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rib: {fileID: 0}
-  ani: {fileID: 0}
-  healthy: 100
-  speedMove: 5
-  speedJump: 26
-  damagedHit: 2
-  damagedKick: 4
-  damagedKick2: 6
-  damagedSuperHit: 15
-  damagedShoot: 2
-  power: 100
-  powerHit: 60
-  powerShoot: 40
-  gameManager: {fileID: 0}
-  curHealthy: 0
-  curPower: 0
-  isDamaged: 0
-  gameOverObj: {fileID: 0}
 --- !u!1 &1624109417932578
 GameObject:
   m_ObjectHideFlags: 0

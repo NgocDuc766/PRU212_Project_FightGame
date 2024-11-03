@@ -298,69 +298,69 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("trung");
-        //if (!player2script.isDamaged)
-        //{
-        if (other.gameObject.tag == "hit")
-        {
-            CreateEffectDamaged(0.5f, 1);
-            isDamaged = true;
-            damagedRate = 0.5f;
-            curHealthy -= 4;
-            curPower += 5;
-            if (curPower > 100)
-            {
-                curPower = 100;
-            }
-            gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
-        }
-        //if (other.gameObject.tag == "kick")
-        //{
-        //	isDamaged = true;
-        //	damagedRate = 1f;
-        //	CreateEffectDamaged(0.5f, 1);
-        //	gameManager.UpdateHealthy(ref curHealthy, ref damagedKick, ref curPower, ref power, 1);
-        //}
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    Debug.Log("trung");
+    //    //if (!player2script.isDamaged)
+    //    //{
+    //    if (other.gameObject.tag == "hit")
+    //    {
+    //        CreateEffectDamaged(0.5f, 1);
+    //        isDamaged = true;
+    //        damagedRate = 0.5f;
+    //        curHealthy -= 4;
+    //        curPower += 5;
+    //        if (curPower > 100)
+    //        {
+    //            curPower = 100;
+    //        }
+    //        gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+    //    }
+    //    //if (other.gameObject.tag == "kick")
+    //    //{
+    //    //	isDamaged = true;
+    //    //	damagedRate = 1f;
+    //    //	CreateEffectDamaged(0.5f, 1);
+    //    //	gameManager.UpdateHealthy(ref curHealthy, ref damagedKick, ref curPower, ref power, 1);
+    //    //}
 
-        if (other.gameObject.tag == "scale")
-        {
-            CreateEffectDamaged(0.5f, 1);
-            isDamaged = true;
-            damagedRate = 0.5f;
-            curHealthy -= 30;
-            curPower += 5;
-            if (curPower > 100)
-            {
-                curPower = 100;
-            }
-            gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
-        }
+    //    if (other.gameObject.tag == "scale")
+    //    {
+    //        CreateEffectDamaged(0.5f, 1);
+    //        isDamaged = true;
+    //        damagedRate = 0.5f;
+    //        curHealthy -= 30;
+    //        curPower += 5;
+    //        if (curPower > 100)
+    //        {
+    //            curPower = 100;
+    //        }
+    //        gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+    //    }
 
-        //if (other.gameObject.name == "kick2P") {
-        //	isDamaged = true;
-        //	damagedRate = 1;
-        //	CreateEffectDamaged (1f, 1f);
-        //	//update healthy
-        //	gameManager.UpdateHealthy (ref curHealthy, ref damagedKick2, ref player2script.curPower, player2script.power, 1);
-        //}
+    //    //if (other.gameObject.name == "kick2P") {
+    //    //	isDamaged = true;
+    //    //	damagedRate = 1;
+    //    //	CreateEffectDamaged (1f, 1f);
+    //    //	//update healthy
+    //    //	gameManager.UpdateHealthy (ref curHealthy, ref damagedKick2, ref player2script.curPower, player2script.power, 1);
+    //    //}
 
-        if (other.gameObject.tag == "bulletPlayer")
-        {
-            Destroy(other.gameObject);
-            CreateEffectDamaged(0.5f, 1);
-            isDamaged = true;
-            damagedRate = 0.5f;
-            curHealthy -= 6;
-            curPower += 10;
-            if (curPower > 100)
-            {
-                curPower = 100;
-            }
-            gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
-            //}
-        }
-    }
+    //    if (other.gameObject.tag == "bulletPlayer")
+    //    {
+    //        Destroy(other.gameObject);
+    //        CreateEffectDamaged(0.5f, 1);
+    //        isDamaged = true;
+    //        damagedRate = 0.5f;
+    //        curHealthy -= 6;
+    //        curPower += 10;
+    //        if (curPower > 100)
+    //        {
+    //            curPower = 100;
+    //        }
+    //        gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+    //        //}
+    //    }
+    //}
 }
 

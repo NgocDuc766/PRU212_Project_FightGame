@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening.Core.Easing;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
@@ -7,11 +8,12 @@ using UnityEngine.UIElements;
 public class PlayerScript : MonoBehaviour
 {
     // khởi tạo
-    private static PlayerScript instance;
+    private static PlayerScript instance ;
+    private static readonly object  instanceLock = new object();
 
     public static PlayerScript GetInstance()
     {
-        return instance;
+                return instance;
     }
 
     private PlayerScript()
@@ -21,6 +23,9 @@ public class PlayerScript : MonoBehaviour
             instance = this;
         }
     }
+
+
+
     /*
      Normal = 0,
      Damaged = 1,
@@ -34,6 +39,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     private float vertical1, movement;
+    private static GameManager gameManager;
     [SerializeField]
     Rigidbody2D rigi;
     [SerializeField]
@@ -47,10 +53,18 @@ public class PlayerScript : MonoBehaviour
     public int healthy = 100;
     [Header("power")]
     public int power = 100;
+    private int curHealthy = 100;
+    private int curPower =100;
+
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
+        gameManager = GameManager.GetIntance();
+        Debug.Log("abcd");
+        curHealthy = healthy;
+        curPower = power;
+
     }
 
     // Update is called once per frame
@@ -108,6 +122,40 @@ public class PlayerScript : MonoBehaviour
 
     public void Attack(float damage)
     {
+        //trừ máu player2
+        if(damage == 2)
+        {
+            curHealthy = curHealthy - 2;
+            curPower += 1;
+            Debug.Log("-2" + "va" + curHealthy );
+        }
+        if (damage == 4)
+        {
+            curHealthy -= 4;
+            curPower += 1;
+        }
+        if (damage == 5)
+        {
+            curHealthy -= 2;
+            curPower += 1;
+        }
+        if (damage == 10)
+        {
+            curHealthy -= 2;
+            curPower += 1;
+        }
+        if(gameManager == null)
+        {
+            Debug.Log("gamemanager null");
+            gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+        }
+        else
+        {
+            Debug.Log("gamemanager not null");
+            gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+
+
+        }
 
     }
 

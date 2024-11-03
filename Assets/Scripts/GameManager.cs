@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
 	{
 		if (instance == null) {
 			instance = this;
-		}
+            DontDestroyOnLoad(gameObject);
+        }
 	}
 
 	public GameState state;
@@ -56,11 +57,6 @@ public class GameManager : MonoBehaviour
 		//Time.timeScale = 1;
 		state = GameState.Prepare;
 		prefabScript = PrefabGO.GetInstance();
-		Debug.Log("1");
-		if (MenuControll.GetInstance() == null) {
-			Debug.Log("nulll");
-
-		}
 		InitPlayer1();
 		InitPlayer2();
 		//InitAI ();
@@ -87,7 +83,6 @@ public class GameManager : MonoBehaviour
 	{
 		//if (MenuControll.GetInstance() != null)
 		//{
-		Debug.Log(MenuControll.player1IndexChara);
 		Instantiate(prefabScript.player1s[MenuControll.player1IndexChara], posPlayer1.position, Quaternion.identity);
 		//}
 		//else
@@ -156,12 +151,12 @@ public class GameManager : MonoBehaviour
 		}
 		public void UpdateHealthyPlayer2(ref int curHealthy, ref int healthy, ref int curpower, ref int power, int action)
 		{
-			if (curHealthy < 100)
+			if (curHealthy <= 100)
 			{
 				_hp2.fillAmount = (float)curHealthy / healthy;
 			}
 
-			if (curpower < 100)
+			if (curpower <= 100)
 			{
 				_anger2.fillAmount = (float)curpower / power;
 			}
