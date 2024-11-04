@@ -21,7 +21,7 @@ public class ComboAttack2 : MonoBehaviour
         }
 
         // Kiểm tra khi người chơi nhấn nút đánh (ở đây là chuột trái)
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetKeyUp(KeyCode.M))
         {
             PerformCombo();
         }

@@ -165,6 +165,7 @@ MonoBehaviour:
   curPower: 0
   isDamaged: 0
   gameOverObj: {fileID: 0}
+  isUsingSkill: 0
 --- !u!61 &61322684828658470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -659,7 +660,7 @@ GameObject:
   - component: {fileID: 4672101466265782160}
   m_Layer: 0
   m_Name: scale
-  m_TagString: Untagged
+  m_TagString: scale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

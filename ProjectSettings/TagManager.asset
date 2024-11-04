@@ -11,6 +11,10 @@ TagManager:
   - bulletEnemy
   - healing
   - power
+  - hitP
+  - kickP
+  - kick2P
+  - scale
   layers:
   - Default
   - TransparentFX

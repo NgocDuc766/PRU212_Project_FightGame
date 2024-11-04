@@ -163,7 +163,7 @@ public class Player2Controll : MonoBehaviour
             {
                 curPower = curPower - 100;
                 ani.SetTrigger("superHit");
-                gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+                gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
             }
         }
         //shoot
@@ -171,9 +171,9 @@ public class Player2Controll : MonoBehaviour
         {
             if (curPower >= 60)
             {
-                curPower = curPower - 1;
+                curPower = curPower - 60;
                 ani.SetTrigger("shoot");
-                gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+                gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
             }
         }
         if (curHealthy <= 0)

@@ -46,7 +46,7 @@ public class GameOverManager : MonoBehaviour
         // Hiển thị Winner ở vị trí phù hợp
         if (!isPlayer1Dead && isPlayer2Dead)
         {
-            winnerLeft.SetActive(true); // Player 2 thắng, hiển thị bên phải
+            winnerLeft.SetActive(true); // Player 2 thắng, hiển thị bên phải           
         }
         if(isPlayer1Dead && !isPlayer2Dead)
         {

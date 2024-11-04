@@ -299,6 +299,7 @@ MonoBehaviour:
   curPower: 0
   isDamaged: 0
   gameOverObj: {fileID: 0}
+  isUsingSkill: 0
 --- !u!114 &114517154294938782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,7 +628,7 @@ GameObject:
   - component: {fileID: 6097376809051319470}
   m_Layer: 0
   m_Name: Scale
-  m_TagString: Untagged
+  m_TagString: scale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

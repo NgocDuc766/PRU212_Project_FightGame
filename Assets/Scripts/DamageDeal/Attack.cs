@@ -27,27 +27,41 @@ public class Attack : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    { 
-       
+    {
+
         // neu la player1 thi tru dame cua player2
-        if(collision.CompareTag("Player2"))
+        if (collision.CompareTag("Player2"))
         {
 
             Debug.Log(collision.gameObject.name);
 
             // trừ máu player2
-            if (collision.gameObject.name == "Gotenk2")
-            {
-                Player2Controll.Attack(attackDamage);
-            } else if (collision.gameObject.name == "FatBuu2")
-            {
-                Player2Controll.Attack(attackDamage);
-            }else if (collision.gameObject.name == "Songoku2")
+            if (collision.gameObject.name == "Gotenk2(Clone)")
             {
                 Player2Controll.Attack(attackDamage);
             }
+            else if (collision.gameObject.name == "FatBuu2(Clone)")
+            {
+                Player2Controll.Attack(attackDamage);
+            }
+            else if (collision.gameObject.name == "Songoku2(Clone)")
+            {
+                Player2Controll.Attack(attackDamage);
+            }
+            else if (collision.gameObject.name == "scale")
+            {
+                Player1Controll.Attack(attackDamage);
+            }
+            else if (collision.gameObject.name == "bulletGoku(Clone)")
+            {
+                Player1Controll.Attack(attackDamage);
+            }
+            else if (collision.gameObject.name == "scale")
+            {
+                Player1Controll.Attack(attackDamage);
+            }
             else
-            { 
+            {
                 Player2Script.Attack(attackDamage);
             }
         }
@@ -55,23 +69,29 @@ public class Attack : MonoBehaviour
         if (collision.CompareTag("Player1"))
         {
             // trừ máu player1
-            if (collision.gameObject.name == "Gotenk1")
+            if (collision.gameObject.name == "Gotenk1(Clone)")
             {
                 Player1Controll.Attack(attackDamage);
             }
-            else if (collision.gameObject.name == "FatBuu1")
+            else if (collision.gameObject.name == "FatBuu1(Clone)")
             {
                 Player1Controll.Attack(attackDamage);
             }
-            else if (collision.gameObject.name == "Songoku1")
+            else if (collision.gameObject.name == "Songoku1(Clone)")
             {
-                Debug.Log(collision.gameObject.name);
+                Player1Controll.Attack(attackDamage);
+            }
+            else if (collision.gameObject.name == "bulletGoku(Clone)")
+            {
+                Player1Controll.Attack(attackDamage);
+            }
+            else if (collision.gameObject.name == "scale")
+            {
                 Player1Controll.Attack(attackDamage);
             }
             else
             {
                 Player1Script.Attack(attackDamage);
-
             }
         }
 
