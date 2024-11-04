@@ -147,7 +147,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 67b6e045308d0c54683e7f66dbb164e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -287,6 +287,7 @@ MonoBehaviour:
   curPower: 0
   isDamaged: 0
   gameOverObj: {fileID: 0}
+  isUsingSkill: 0
 --- !u!1 &1506909176570926
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +559,7 @@ GameObject:
   - component: {fileID: 4362641912547234}
   - component: {fileID: 212508289401238714}
   m_Layer: 0
-  m_Name: Kamekameha
+  m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -644,7 +645,7 @@ GameObject:
   - component: {fileID: 61032594147617388}
   - component: {fileID: 925381662730463709}
   m_Layer: 0
-  m_Name: Kame_Scale
+  m_Name: scale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

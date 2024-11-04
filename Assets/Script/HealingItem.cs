@@ -3,7 +3,7 @@
 public class HealingItem : MonoBehaviour
 {
     public int healAmount = 10;       
-    private float spawnInterval = 5f; 
+    private float spawnInterval = 20f; 
     private float lifetime = 5f;       
 
     private void OnEnable()
@@ -27,7 +27,6 @@ public class HealingItem : MonoBehaviour
     private void Despawn()
     {
         gameObject.SetActive(false);
-        Debug.Log("Despawned");
         // Tắt vật phẩm để chờ lần xuất hiện tiếp
     }
 
@@ -35,7 +34,6 @@ public class HealingItem : MonoBehaviour
     {
         transform.position = position;
         gameObject.SetActive(true);
-        Debug.Log("Respawned");
         // Kích hoạt vật phẩm
     }
 }

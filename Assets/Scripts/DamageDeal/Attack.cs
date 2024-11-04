@@ -33,7 +33,6 @@ public class Attack : MonoBehaviour
         if(collision.CompareTag("Player2"))
         {
 
-            Debug.Log("tru player2222");
             Debug.Log(collision.gameObject.name);
 
             // trừ máu player2
@@ -46,8 +45,6 @@ public class Attack : MonoBehaviour
             }else if (collision.gameObject.name == "Songoku2")
             {
                 Player2Controll.Attack(attackDamage);
-                Debug.Log("goncu");
-
             }
             else
             { 
@@ -57,7 +54,6 @@ public class Attack : MonoBehaviour
         // neu la player2 thi tru dame cua player1
         if (collision.CompareTag("Player1"))
         {
-            Debug.Log("tru player1111");
             // trừ máu player1
             if (collision.gameObject.name == "Gotenk1")
             {
@@ -69,12 +65,11 @@ public class Attack : MonoBehaviour
             }
             else if (collision.gameObject.name == "Songoku1")
             {
+                Debug.Log(collision.gameObject.name);
                 Player1Controll.Attack(attackDamage);
             }
             else
             {
-                Debug.Log("tru scriptplayer1");
-
                 Player1Script.Attack(attackDamage);
 
             }

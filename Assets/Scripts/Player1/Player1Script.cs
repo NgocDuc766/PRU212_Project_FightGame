@@ -47,7 +47,7 @@ public class Player1Script : MonoBehaviour
     [Header("power")]
     public int power = 100;
     public int curHealthy = 100;
-    private int curPower = 100;
+    public int curPower = 100;
     private bool isDead = false;
 
     // Start is called before the first frame update
@@ -122,6 +122,12 @@ public class Player1Script : MonoBehaviour
         isGrounded = true;
         animator.SetBool("isJumping", !isGrounded);
     }
+    public void SetPower(int newPower)
+    {
+        curPower = newPower;
+        gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+    }
+
 
     public void Attack(float damage)
     {
@@ -134,17 +140,18 @@ public class Player1Script : MonoBehaviour
         if (damage == 4)
         {
             curHealthy -= 4;
-            curPower += 1;
+            curPower += 2;
         }
         if (damage == 5)
         {
-            curHealthy -= 2;
-            curPower += 1;
+            curHealthy -= 5;
+            curPower += 3;
         }
         if (damage == 10)
         {
-            curHealthy -= 2;
-            curPower += 1;
+            curHealthy -= 10;
+            curPower += 4;
+            Debug.Log(curPower);
         }
         animator.SetTrigger("isDamaged");
         gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
@@ -156,12 +163,20 @@ public class Player1Script : MonoBehaviour
         {
             Debug.Log(curHealthy);
             curHealthy += 10;
+            if (curHealthy >= 100)
+            {
+                curHealthy = 100;
+            }
             gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
             other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "power")
         {
             curPower += 10;
+            if (curPower >= 100)
+            {
+                curPower = 100;
+            }
             gameManager.UpdateHealthyPlayer1(ref curHealthy, ref healthy, ref curPower, ref power, 1);
             other.gameObject.SetActive(false);
         }

@@ -275,7 +275,7 @@ public class Player2Controll : MonoBehaviour
 
     }
 
-
+    public bool isUsingSkill;
     public void Attack(float damage)
     {
         //trừ máu đối phương - player2

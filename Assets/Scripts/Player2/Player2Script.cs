@@ -41,7 +41,7 @@ public class Player2Script : MonoBehaviour
     [Header("power")]
     public int power = 100;
     public int curHealthy = 100;
-    private int curPower = 100;
+    public int curPower = 100;
 
     private bool isDead = false;
     // Start is called before the first frame update
@@ -114,6 +114,11 @@ public class Player2Script : MonoBehaviour
         animator.SetBool("isJumping", !isGrounded);
     }
     // attack trừ máu đối phương - player1
+    public void SetPower(int newPower)
+    {
+        curPower = newPower;
+        gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
+    }
     public void Attack(float damage)
     {
         //trừ máu đối phương - player2
@@ -121,22 +126,21 @@ public class Player2Script : MonoBehaviour
         {
             curHealthy = curHealthy - 2;
             curPower += 1;
-            Debug.Log("-2" + "va" + curHealthy);
         }
         if (damage == 4)
         {
             curHealthy -= 4;
-            curPower += 1;
+            curPower += 2;
         }
         if (damage == 5)
         {
-            curHealthy -= 2;
-            curPower += 1;
+            curHealthy -= 5;
+            curPower += 3;
         }
         if (damage == 10)
         {
-            curHealthy -= 2;
-            curPower += 1;
+            curHealthy -= 10;
+            curPower += 4;
         }
         animator.SetTrigger("isDamaged");
         gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
@@ -165,12 +169,20 @@ public class Player2Script : MonoBehaviour
         if (other.gameObject.tag == "healing")
         {
             curHealthy += 10;
+            if (curHealthy >= 100)
+            {
+                curHealthy = 100;
+            }
             gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
             other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "power")
         {
             curPower += 10;
+            if (curPower >= 100)
+            {
+                curPower = 100;
+            }
             gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
             other.gameObject.SetActive(false);
         }

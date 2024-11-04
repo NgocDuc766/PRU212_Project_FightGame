@@ -9,7 +9,7 @@ public class ItemSpawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnItem), 0f, 5f); // Gọi hàm SpawnItem mỗi 10 giây
+        InvokeRepeating(nameof(SpawnItem), 0f, 20f); // Gọi hàm SpawnItem mỗi 10 giây
     }
 
     private void SpawnItem()

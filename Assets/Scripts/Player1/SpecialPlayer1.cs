@@ -6,10 +6,18 @@ using UnityEngine;
 public class SpecialPlayer1: MonoBehaviour
 {
     private Animator animator;
+    private static GameManager gameManager;
+    private Player1Script Player1Script;
+    int updatepower;
+    float timeout = 0f;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        Player1Script = Player1Script.GetInstance();
         animator = GetComponent<Animator>();
+        gameManager = GameManager.GetIntance();
+        updatepower = Player1Script.curPower;
+
     }
 
     // Update is called once per frame
@@ -22,7 +30,12 @@ public class SpecialPlayer1: MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.U))
         {
-            animator.SetTrigger("isSpecial1");
+            if (updatepower >= 20 && Time.time - timeout >= 1f) {
+                animator.SetTrigger("isSpecial1");
+                updatepower = updatepower - 20;
+                Player1Script.SetPower(updatepower);
+                timeout = Time.time;
+            }
         }
         if (Input.GetKeyDown(KeyCode.I))
         {

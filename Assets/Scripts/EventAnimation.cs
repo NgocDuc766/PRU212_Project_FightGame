@@ -31,12 +31,12 @@ public class EventAnimation : MonoBehaviour
 		}
 	}
 
-	//public void CanUsingSkillSpecial()
-	//{
-	//	Player2Controll AI = GetComponent<Player2Controll>();
-	//	if (AI != null)
-	//		AI.isUsingSkillS = false;
-	//}
+	public void CanUsingSkillSpecial()
+	{
+		Player2Controll player2 = GetComponent<Player2Controll>();
+		if (player2 != null)
+			player2.isUsingSkill = false;
+	}
 
 	public void CallBulletPlayer1(Player1Controll player1)
 	{
