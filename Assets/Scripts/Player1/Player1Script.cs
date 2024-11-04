@@ -32,6 +32,7 @@ public class Player1Script : MonoBehaviour
 
     private float vertical1, movement;
     private static GameManager gameManager;
+    private static GameOverManager gameOverManager;
     // animator va rigibody
     Rigidbody2D rigi;
     Animator animator;
@@ -60,6 +61,8 @@ public class Player1Script : MonoBehaviour
             }
         }
         gameManager = GameManager.GetIntance();
+        gameOverManager = GameOverManager.GetInstance();
+        //
         curHealthy = healthy;
         curPower = power;
         // get animator and rigidbody
@@ -170,6 +173,7 @@ public class Player1Script : MonoBehaviour
             animator.SetTrigger("isDead");
             rigi.velocity = Vector2.zero;
             isDead = true;
+            gameOverManager.HandleGameOver(isDead, false);
         }
     }
 

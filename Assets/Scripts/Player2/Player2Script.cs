@@ -28,6 +28,7 @@ public class Player2Script : MonoBehaviour
 
     private float movement;
     private static GameManager gameManager;
+    private static GameOverManager gameOverManager;
     Rigidbody2D rigi;
     public Animator animator;
     [SerializeField]
@@ -53,7 +54,9 @@ public class Player2Script : MonoBehaviour
                 instance = this;
             }
         }
+        gameOverManager = GameOverManager.GetInstance();
         gameManager = GameManager.GetIntance();
+        //
         curHealthy = healthy;
         curPower = power;
         animator = GetComponent<Animator>();
@@ -146,6 +149,7 @@ public class Player2Script : MonoBehaviour
             animator.SetTrigger("isDead");
             rigi.velocity = Vector2.zero;
             isDead = true;
+            gameOverManager.HandleGameOver(false, isDead);
         }
     }
 
