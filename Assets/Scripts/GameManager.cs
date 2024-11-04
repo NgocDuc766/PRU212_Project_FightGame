@@ -48,20 +48,22 @@ public class GameManager : MonoBehaviour
 	[Header("slider")]
 	public GameObject sliderHealthyEnemy, sliderPowerEnemy;
 
-	private PrefabGO prefabScript;
+    [Header("Countdown Object")]
+    public GameObject fightObject; // Assign your "Fight" GameObject in the Inspector
+    private PrefabGO prefabScript;
 
 
 	// Use this for initialization
 	void Start()
 	{
-		//Time.timeScale = 1;
-		state = GameState.Prepare;
-		prefabScript = PrefabGO.GetInstance();
-		InitPlayer1();
-		InitPlayer2();
-        //InitAI ();
-        //StartCoroutine(Loading());
+        //Time.timeScale = 1;
+        state = GameState.Prepare;
+        prefabScript = PrefabGO.GetInstance();
+        InitPlayer1();
+        InitPlayer2();
         DontDestroyOnLoad(gameObject);
+
+        StartCoroutine(ShowFightObjectAndStartGame());
     }
 
 
@@ -101,44 +103,47 @@ public class GameManager : MonoBehaviour
 		//    }
 		//}
 	}
-		//private void InitPlayer2()
-		//{
-		//	var index = SceneManager.GetActiveScene().name.Substring(5);
-		//	//Debug.Log(index);
-		//	var AI = int.Parse(index) - 1;
-		//	GameObject aiPrefab = prefabScript.AIs[AI];
-		//	Instantiate(aiPrefab, posAI.position, Quaternion.identity);
-		//}
+    //private void InitPlayer2()
+    //{
+    //	var index = SceneManager.GetActiveScene().name.Substring(5);
+    //	//Debug.Log(index);
+    //	var AI = int.Parse(index) - 1;
+    //	GameObject aiPrefab = prefabScript.AIs[AI];
+    //	Instantiate(aiPrefab, posAI.position, Quaternion.identity);
+    //}
 
-		private IEnumerator CountTimerStart()
-		{
-			txtTimerStart.text = "3";
-			yield return new WaitForSeconds(1);
-			txtTimerStart.text = "2";
-			yield return new WaitForSeconds(1);
-			txtTimerStart.text = "1";
-			yield return new WaitForSeconds(1);
-			txtTimerStart.text = "Fight!";
-			yield return new WaitForSeconds(1);
-			txtTimerStart.text = "";
-			state = GameState.Playing;
-		}
+    private IEnumerator ShowFightObjectAndStartGame()
+    {
+        fightObject.SetActive(false);
+        yield return new WaitForSeconds(2);
+ 
+        // Show the fight object
+        fightObject.SetActive(true);
 
-		//public void UpdateHealthy (ref int curHealthy, ref int damagedHealthy,ref int curPowerEnemy,int maxPower, int action)
-		//{
-		//	if(action == 1 && (curPowerEnemy + 10) <= maxPower){
-		//		curPowerEnemy += 10;
-		//		UpdatePowerEnemy(curPowerEnemy);
-		//	}
-		//	if (curHealthy >= damagedHealthy) {
-		//		curHealthy = curHealthy - damagedHealthy;
-		//		iTween.ScaleTo (sliderHealthy, new Vector3 (curHealthy * 2.6f / 100, sliderHealthy.transform.localScale.y, 0), 0f);
-		//	} else {
-		//		curHealthy = 0;
-		//		iTween.ScaleTo (sliderHealthy, sliderHealthy.transform.localScale + new Vector3 (0, 0, 0), 0f);
-		//	}
-		//}
-		public void UpdateHealthyPlayer1(ref int curHealthy, ref int healthy, ref int curpower, ref int power, int action)
+        // Wait for 2 seconds
+        yield return new WaitForSeconds(3);
+
+        // Hide the fight object
+        fightObject.SetActive(false);
+       
+        // Start the game
+        state = GameState.Playing;
+    }
+    //public void UpdateHealthy (ref int curHealthy, ref int damagedHealthy,ref int curPowerEnemy,int maxPower, int action)
+    //{
+    //	if(action == 1 && (curPowerEnemy + 10) <= maxPower){
+    //		curPowerEnemy += 10;
+    //		UpdatePowerEnemy(curPowerEnemy);
+    //	}
+    //	if (curHealthy >= damagedHealthy) {
+    //		curHealthy = curHealthy - damagedHealthy;
+    //		iTween.ScaleTo (sliderHealthy, new Vector3 (curHealthy * 2.6f / 100, sliderHealthy.transform.localScale.y, 0), 0f);
+    //	} else {
+    //		curHealthy = 0;
+    //		iTween.ScaleTo (sliderHealthy, sliderHealthy.transform.localScale + new Vector3 (0, 0, 0), 0f);
+    //	}
+    //}
+    public void UpdateHealthyPlayer1(ref int curHealthy, ref int healthy, ref int curpower, ref int power, int action)
 		{
 			if (curHealthy < 100)
 			{

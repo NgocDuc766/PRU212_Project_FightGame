@@ -61,7 +61,7 @@ public class MapControll : MonoBehaviour
         var btnChar = EventSystem.current.currentSelectedGameObject;
         if (btnChar != null)
         {
-            selectObj.transform.localPosition = btnChar.transform.localPosition + new Vector3(0, 20, 0);
+            selectObj.transform.localPosition = btnChar.transform.localPosition + new Vector3(600, 150, 0);
             nameMap = btnChar.name;
             /*SetActiveIcon();*/
             switch (btnChar.name)

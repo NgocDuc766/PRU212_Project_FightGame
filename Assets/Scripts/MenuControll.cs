@@ -88,7 +88,7 @@ public class MenuControll : MonoBehaviour
         var btnChar = EventSystem.current.currentSelectedGameObject;
         if (btnChar != null)
         {
-            selectObj.transform.position = btnChar.transform.position + new Vector3(0, 10, 0);
+            selectObj.transform.position = btnChar.transform.position + new Vector3(0, 1, 0);
 
             if (isPlayer1Selecting)
             {
@@ -130,7 +130,7 @@ public class MenuControll : MonoBehaviour
                 playerIndex = 4;
                 iconArray[4].SetActive(true);
                 break;
-            case "Gohan":
+            case "FatBuu":
                 playerIndex = 5;
                 iconArray[5].SetActive(true);
                 break;

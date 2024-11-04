@@ -42,7 +42,7 @@ public class Player2Script : MonoBehaviour
     public int curHealthy = 100;
     private int curPower = 100;
 
-    private bool isDead= false;
+    private bool isDead = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -170,5 +170,5 @@ public class Player2Script : MonoBehaviour
             gameManager.UpdateHealthyPlayer2(ref curHealthy, ref healthy, ref curPower, ref power, 1);
             other.gameObject.SetActive(false);
         }
-    }     
+    }
 }
